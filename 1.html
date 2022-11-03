@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>c++</title>
+  <style>
+		body{
+			font-family: sans-serif;
+			background: #3f3f3f;
+			color: white;
+		}
+		pre{
+			color: lime
+		}
+		h3{
+			color: crimson
+		}
+		.crimson{
+			color: crimson
+		}
+		img{
+			max-width:100%
+		}
+  </style>
+</head>
+
+<body>
+
+<h3>Primer programa en c++</h3>
+
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main(){
+	cout &lt;&lt; "Hola mundo!" &lt;&lt; endl;
+	return 0;
+}
+</pre>
+
+<h3>compilar en vscodium</h3>
+
+<p>Para poder compilar este programa
+lo que se escribe es:
+</p>
+
+<pre>
+g++ test.cpp -o test.exe
+</pre>
+
+<p>Y para poder ejecutar el programa se realize el siguiente comando</p>
+
+<pre>
+.\test
+</pre>
+
+<pre>
+cout significa character output
+segun www.programiz.com/
+</pre>
+
+<h3>configurar clang en vscodium</h3>
+
+<pre>
+youtuber: SetupTech!
+titulo: How to setup Clang on windows and vscode
+
+Setup Clang on Windows and VsCode without Microsoft Visual Studio IDE
+==================================================
+
+go to https://www.msys2.org or just search for msys2
+
+1) Download and install mysys2
+2) Open mysys2 terminal and type the the following to install the clang package:
+
+pacman -S mingw-w64-x86_64-clang
+pacman -S mingw-w64-x86_64-clang-tools-extra
+
+
+3) add Clang path to the System variable : path
+
+C:\msys64\mingw64\bin
+
+en esta dirección se encuentra el compilador clang++.exe
+
+luego para compilar un archivo 
+
+clang++ test.cpp -o test.exe
+
+para ejecutar el test.exe
+
+clang++ .\test   en powershell
+test             en command cmd de windows10
+</pre>
+
+<h3>Instalando plugins code runner en vscodium</h3>
+
+<p>El autor de esta extensión es formulahendry</p>
+
+<h3>Configuración de la extension code runner</h3>
+
+<p>hay en la extensio una tuerca a la que nos tienen acostrumbrados
+los software para configurar le damos clic y elegimos la opción 
+"Extensión Settings", luego nos aparecera el siguiente texto
+@ext:formulahendry.code-runner , digitamos un espacio y seguidamente escribimos
+cl que son las iniciales de clear para que elimine el buffer anterior y que
+actualize los cambios al precionar run en la extensión, otra configuración es
+save luego de @ext:formulahendry.code-runner, para salvar todos los archivos
+antes de ejecutar, y otra configuración es exe, para ingresar al settings.json 
+y camgiamos g++ por clang++, otra configuración es term para ejecutar
+dentro de la teminal y no abra otra ventana., por ultimo podemos instalar
+otra extension llamada clangd de el autor llvm-vs-code-extensions
+</p>
+
+<h3>COMPILAR</h3>
+
+<p>Compilar es pasar un fichero fuente (codigo fuente) a codigo maquina.
+El codigo fuente puede estar escrito en c++, java, c# y muchos otros
+lenguajes. Es decir un ordenador no entiende otra cosa que no sea
+codigo maquina, es decir codigo binario "unos y ceros.", el codigo fuente
+es mas cercano al idioma con el que nos comunicamos las personas (Español,
+Ingles, etc.), y el codigo maquina es el lenguaje mas cercano para que
+fuesen interpretados por las maquinas.</p>
+
+<h3>Lenguages de alto nivel</h3>
+
+<p>Porque su sintaxis, su escritura se asemaja mucho al idioma que hablan
+los seres humanos mientras se les denomina lenguajes de bajo nivel a los 
+lenguajes que se aproximan al lenguaje maquina como puede ser el lenguaje
+ensamblador.</p>
+
+<h3>cuatro pasos que se sigue al compilar</h3>
+
+<pre>
+Preprocesado
+compilación
+ensamblado
+enlazado
+</pre>
+
+<p>El preprocesado es ver todas las directivas en el caso de un archivo de c++
+para poder importar todo el codigó que hay en esas librerias, para que podamos
+usar todas esas clases y funciones que hay en esas librerias.</p>
+
+<p>En la segunda etapa tambien llamada compilación por coincidencia, es la etapa
+donde se generan instrucciones de ensamblado que van a depender de la maquina
+donde se este compilando el programa, es decir que si estas utilizando
+una maquina de 32bits se generara un codigo de ensamblado determinado, pero
+si estas utilizando una maquina de 64bits se generara un código de ensamblado
+distinto.</p>
+
+<p>El tercer paso que se denomina ensamblado, esas instrucciones de ensamblado
+del paso dos, se transforma a codigo binario</p>
+
+<p>En el último paso se fusionan todos los archivos que se hayan podido generar. En
+un unico archivo ejecutable, en nuestro caso sera un archivo.exe que finalmente
+sera el archivo que se lee, se ejecuta, se interpreta</p>
+
+<h3>¿Qué es una directiva?</h3>
+
+<p>Es una instrucción que nos permite añadir contenido que hay en bibliotecas
+externas a nuestro programa</p>
+
+<h3>Espacios de nombres</h3>
+
+<p>Los espacios de nombres estan dentro de las bibliotecas por lo que podemos
+precindir de los espacios de nombres en el archivo c++ pero la función cout ne
+sería reconocido directamente por el compilador de c++. por lo que tendriamos
+que enteponer el espacio de nombre lugo doble dos puntos para luego poner
+la instrucción cout como se muestra en el siguiente ejemplo.</p>
+
+<pre>
+#include &lt;iostream&gt;
+
+int main(){
+	std::cout &lt;&lt; "Hola mundo!" &lt;&lt; std::endl;
+	return 0;
+}
+</pre>
+
+<p>Se puede notar que la función endl tambien se encuentra dentro del
+espacio de nombres std</p>
+
+<h3>Comentarios en c++</h3>
+
+<pre>
+//Comentario de una sola linea
+
+/*
+Comentarios de 
+varias lineas
+
+*/
+</pre>
+
+<h3>Funciones</h3>
+
+<p>Las funciones sirben para agrupar codigo en su interior que es tradicional
+la llave de apertura hasta la llave de cierre que es como fue diseñado c y que c++
+tambien mantiene como es de esperar. La función main es una función importante porque es
+por donde inicia la ejecución de cualquier programa y termina con la ultima linea
+que lleva dentro de los corchetes de la función main, las funciones tienen una zona de
+parametros que estan dentro de los parentesis, estos parametros podran o no estar,
+es decir que podran o no tener parametros. Luego notar que la función cout
+retorna por consola un mensaje y ese mensaje debera estar entre comillas. Notar que las
+cadenas de caracteres deber ir siempre entre comillas dobles mientras que si escribo un caracter
+puedo escribirlo entre comillas simples, tambien en la función main podemos
+prescindir de la instrucción return 0;</p>
+
+<p>Para realizar el salto de linea podemos es con la instruccion std::endl; pero tambien
+podemos hacer saltos de linea con la instrucción \n</p>
+
+<h3>TIPOS DE VARIABLES</h3>
+
+<pre>
+Caracteres
+Enteros
+Decimales
+Booleanos
+</pre>
+
+<p>Dentro de los enteros tenemos short, int, long, long long.</p>
+
+<p>Los números decimales en c++ son float, double, long double, que en la jerga de la
+programación son conocidos con el nombre de coma flotante.</p>
+
+<p>Y por ultimo tenemos los tipos de datos bool utilizados para representar verdadero
+o falso (true o false), tambien notar que el número cero lo podemos utilizar para representar
+false y cualquier otro número para representar true, notar que se escribe en minuscula
+false y true.</p>
+
+<p>C++ es un lenguage fuertemente tipado, es decir que te obliga a especificar
+el tipo de dato que lleva en su interior.</p>
+
+<h3>Declarar una variable</h3>
+
+<p>Es la acción de crear una variable, sin todavía darle un valor</p>
+
+<h3>Inicializar una variable</h3>
+
+<p>Es darle valor a una variable, es decir almacenar un tipo de dato dentro
+de la variabla ya creada previamente.</p>
+
+<pre>
+int salario = 3500; //Declarar e iniciar una variable
+int ventas;  //Declarar una variable 
+    ventas = 6000; //Inizializar una variable."Notar que no se necesita nuevamente int previamente."
+</pre>
+
+<h3>Inicializar una variable en c++</h3>
+
+<pre>
+int z;      //Sin inicializar.
+int z = 5; //Inicialización tradicional.
+int z(5);  //Inicialización de constructor.
+int z{5};  //Inicialización de lista.
+</pre>
+
+<p>int z{5}; esta forma de inicializar esta variable se creo recientemente
+y que permite resolver perdida de presición al momento de realizar la conversión
+de datos implicita conocida como narrowing.</p>
+
+<h3>Ejemplo de inicialización de variables</h3>
+
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main(){
+    string nombre = "Adrian";
+    int edad{35};
+    double salario;
+    cout &lt;&lt; "Introduce el salario del empleado:\n";
+    cin &gt;&gt; salario;
+    cout &lt;&lt; "Datos del empleado: \n";
+    cout &lt;&lt; "Nombre: " &lt;&lt; nombre &lt;&lt; ". Edad: " &lt;&lt; edad &lt;&lt; ". Salario: " &lt;&lt; salario;
+    return 0;
+}
+</pre>
+
+<h3>Tipos de constantes en c++</h3>
+
+<pre>
+Constantes literales:
+	\n \t \b etc
+Constantes declaradas:
+	Palabra reservada const
+Expresiones constantes:
+	Palabra reservada constexpr
+Constantes enumeradas:
+	Palabra reservada enum
+Constantes definidas
+	Directiva #define (obsoleto)
+</pre>
+
+<p>Un ejemplo de las constantes definidas es:</p>
+
+<pre>
+#define precio = 1200
+
+//Notar que no se necesito decirle el tipo de dato y tampoco
+//se le puso el punto y coma al final de la instrucción.
+//Pero tambien decir que este tipo de constantes esta
+//en desuso, es decir que esta obsoleto.
+</pre>
+
+<p>Ejemplo de la declaración e inicialización de constantes.</p>
+
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main(){
+    const string nombre = "Adrian";
+    int edad{35};
+    double salario;
+    cout &lt;&lt; "Introduce el salario del empleado:\n";
+    cin &gt;&gt; salario;
+    cout &lt;&lt; "Datos del empleado: \n";
+    cout &lt;&lt; "Nombre: " &lt;&lt; nombre &lt;&lt; ". Edad: " &lt;&lt; edad &lt;&lt; ". Salario: " &lt;&lt; salario;
+    return 0;
+}
+</pre>
+
+<p>Notar que no se permite declarar e inicializar la constante
+en lineas distintas, es decir si la constante que queremos crear
+la inicializamos en otra linea, el compilador de c++ nos genera
+un error.</p>
+
+<h3>Ejemplo práctico</h3>
+
+<pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main(){<
+    cout &lt;&lt; "Bienvenido al servicio Instalación de tarima flotante\n";
+    int metros_calidad_media{0};
+    cout &lt;&lt; "¿Cuántos metros quieres instalar con calidad media?\n";
+    cin &gt;&gt; metros_calidad_media;
+    int metros_calidad_alta{0};
+    cout &lt;&lt; "¿Cuantos metros quieres instalar con calidad alta?.\n";
+    cin &gt;&gt; metros_calidad_alta;
+
+    const double precio_calidad_media{35.5};
+    const double precio_calidad_alta{55.3};
+    const double iva{0.21};
+    const int expira_presupuesto{30};
+    
+    cout &lt;&lt; "Presupuesto para instalación de tarima flotante: \n";
+    cout &lt;&lt; "Número de metros de calidad media: " &lt;&lt; metros_calidad_media &lt;&lt; endl;
+    cout &lt;&lt; "Número de metros de calidad alta: " &lt;&lt; metros_calidad_media &lt;&lt; endl;
+
+    cout &lt;&lt; "Precio de tarima calidad media: " &lt;&lt; precio_calidad_media &lt;&lt; endl;
+    cout &lt;&lt; "Precio de tarima calidad alta: " &lt;&lt; precio_calidad_alta &lt;&lt; endl;
+
+    cout &lt;&lt; "IMPORTE: \n";
+    cout &lt;&lt; (precio_calidad_alta * metros_calidad_alta) + (precio_calidad_media * metros_calidad_media) &lt;&lt; " $." &lt;&lt; endl;
+    cout &lt;&lt; "IVA: " &lt;&lt; ((precio_calidad_alta * metros_calidad_alta) + (precio_calidad_media * metros_calidad_media))*iva &lt;&lt; " $." &lt;&lt; endl;
+    cout &lt;&lt; "====================================" &lt;&lt; endl;
+
+    cout &lt;&lt; "IMPORTE TOTAL: ";
+    cout &lt;&lt; (precio_calidad_alta * metros_calidad_alta) + (precio_calidad_media * metros_calidad_media) +
+            ( ((precio_calidad_alta * metros_calidad_alta) + (precio_calidad_media * metros_calidad_media))*iva) &lt;&lt; " $." &lt;&lt; endl;
+    
+    cout &lt;&lt; "Presupuesto válido durante " &lt;&lt; expira_presupuesto &lt;&lt; " días.";
+}
+</pre>
+
+<p>Se puede escribir un cout en dos lineas (ver la penultima linea de codigo donde se pone el signo + y luego se continua
+abajo con la formula matemática.)</p>
+
+</body>
+</html>
